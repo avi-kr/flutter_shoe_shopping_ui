@@ -1,26 +1,27 @@
+import 'package:flutter/material.dart';
 import 'package:shopping_app_ui/models/shoe.dart';
 
-class Cart {
+class Cart extends ChangeNotifier {
   // List of shoes for sale
   List<Shoe> shoeShop = [
     Shoe(
       name: 'Lorem Ipsum',
       price: '123',
-      imageUrl: 'lib/images/1.png',
+      imageUrl: 'lib/images/4.png',
       description:
           'Lorem Ipsum is simply dummy text of the printing and typesetting industry. ',
     ),
     Shoe(
       name: 'Lorem Ipsum',
       price: '123',
-      imageUrl: 'lib/images/2.png',
+      imageUrl: 'lib/images/2.jpg',
       description:
           'Lorem Ipsum is simply dummy text of the printing and typesetting industry. ',
     ),
     Shoe(
       name: 'Lorem Ipsum',
       price: '123',
-      imageUrl: 'lib/images/2.png',
+      imageUrl: 'lib/images/3.png',
       description:
           'Lorem Ipsum is simply dummy text of the printing and typesetting industry. ',
     ),
@@ -77,10 +78,12 @@ class Cart {
 // add item to cart
   void addItemToCart(Shoe shoe) {
     userCart.add(shoe);
+    notifyListeners();
   }
 
 // remote item from cart
   void deleteItemFromCart(Shoe shoe) {
     userCart.remove(shoe);
+    notifyListeners();
   }
 }
